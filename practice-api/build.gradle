@@ -1,0 +1,16 @@
+dependencies {
+    implementation project(':practice-core')
+    implementation project(':practice-common')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    runtimeOnly 'com.h2database:h2'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}

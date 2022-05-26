@@ -1,0 +1,5 @@
+rootProject.name = 'multimodule-practice'
+include 'practice-common'
+include 'practice-core'
+include 'practice-api'
+
