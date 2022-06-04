@@ -4,6 +4,7 @@ import com.multimodule.service.MemberService;
 import com.multimodule.service.dto.MemberCreateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,10 @@ public class MemberController {
     ResponseEntity<Void> createMember(MemberCreateRequestDto requestDto) {
         Long createdMemberId = memberService.createMember(requestDto);
         return ResponseEntity.created(URI.create("/api/members" + "/" + createdMemberId)).build();
+    }
+
+    @GetMapping("/api/test")
+    String test() {
+        return "hello";
     }
 }
