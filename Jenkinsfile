@@ -26,6 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('.') {
+                    sh 'chmod +x gradlew'
                     sh './gradlew clean build'
                 }
             }
