@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         registryCredential = "docker-hub"
-        dockerImageName = 'jenkins-practice'
+        dockerImageName = 'kgr4163/jenkins-practice'
         dockerImage = ''
     }
 
@@ -62,7 +62,7 @@ pipeline {
             steps {
                 echo 'Push image to DockerHub'
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/kgr4163', registryCredential) {
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
                         dockerImage.push("latest")
                     }
                 }
