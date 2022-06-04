@@ -62,7 +62,7 @@ pipeline {
             steps {
                 echo 'Push image to DockerHub'
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                    docker.withRegistry('https://registry.hub.docker.com/kgr4163', registryCredential) {
                         dockerImage.push("latest")
                     }
                 }
