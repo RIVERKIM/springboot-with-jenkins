@@ -82,7 +82,7 @@ pipeline {
             steps {
                 echo 'Pull docker image and docker image run'
 
-                sshagent (credentials: ['d37a8a1a-0559-4369-af8b-c42ded2f1f1f']) {
+                sshagent (credentials: ['ec2-ssh']) {
                     sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-3-39-201-123.ap-northeast-2.compute.amazonaws.com 'docker pull kgr4163/jenkins-practice'"
                     sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-3-39-201-123.ap-northeast-2.compute.amazonaws.com 'docker ps -aq --filter name=springboot | grep . && docker rm -f \$(docker ps -aq --filter name=springboot)'"
                     sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-3-39-201-123.ap-northeast-2.compute.amazonaws.com 'docker run -d --name=springboot -p 8083:8083 kgr4163/jenkins-practice'"
